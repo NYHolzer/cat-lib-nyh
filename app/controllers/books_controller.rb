@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
     get '/books' do 
-        "A list of publically available books:"
+        if !logged_in?
+            redirect '/login'  #Redirecting if they aren't
+        else 
+            erb :"books/index.html" 
+        end
     end
 
     get '/books/new' do 
