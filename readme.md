@@ -1,2 +1,3 @@
 # Book Cataloger
+A Sinatra web application that allows us to ...
 This is my book cataloger for my Sinatra Portfolio Project

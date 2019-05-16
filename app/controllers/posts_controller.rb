@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
-    get '/posts' do 
-        "A list of publically available posts"
+    get '/books' do 
+        "A list of publically available books:"
     end
 
-    get '/posts/new' do 
+    get '/books/new' do 
         # checking if they are logged in
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
         end
     end
 
-    get 'posts/:id/edit' do 
+    get 'books/:id/edit' do 
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
         else 
