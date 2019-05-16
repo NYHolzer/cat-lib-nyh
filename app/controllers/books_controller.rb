@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class BooksController < ApplicationController
     get '/books' do 
         "A list of publically available books:"
     end
@@ -8,9 +8,19 @@ class PostsController < ApplicationController
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
         else 
-            "A new post form"  #rendering if they are
+            erb :"books/new.html"   
         end
     end
+
+    post "/books" do 
+        @book = Book.new 
+        @book.title = params[:title]
+        @book.description = params[:description]
+        @book.user_id = current_user.id 
+        @book.save
+
+        redirect "/books"
+    end 
 
     get 'books/:id/edit' do 
         if !logged_in?

@@ -7,6 +7,6 @@ require_relative './config/environment'
   
 use Rack::MethodOverride
 use SessionsController
-use PostsController
+use BooksController
 use UsersController
 run ApplicationController
