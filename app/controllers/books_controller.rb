@@ -17,21 +17,12 @@ class BooksController < ApplicationController
         end
     end
 
-    post "/books" do 
-        @book = Book.new 
-        @book.title = params[:title]
-        @book.description = params[:description]
-        @book.user_id = current_user.id 
-        @book.save
-
-        redirect "/books"
-    end 
-
-    get 'books/:id/edit' do 
+    get '/books/:id/edit' do 
         if !logged_in?
-            redirect '/login'  #Redirecting if they aren't
+            redirect '/login'  
         else 
-            "A edit post form"  #rendering if they are
+            @book = Book.find(params[:id])
+            erb :'books/edit.html'
         end
     end
 
@@ -42,6 +33,26 @@ class BooksController < ApplicationController
             @book = Book.find(params[:id])
             erb :'books/show.html'
         end
+    end
+
+    post "/books" do 
+        @book = Book.new 
+        @book.title = params[:title]
+        @book.description = params[:description]
+        @book.user_id = current_user.id 
+        @book.save
+
+        redirect "/books"
+    end 
+
+    patch '/books/:id' do 
+        @book = Book.find(params[:id])
+        @book.title = params[:title]
+        @book.description = params[:description]
+        @book.save 
+        @book 
+
+        redirect '/books/#{@book.id}'
     end
 
     delete '/books/:id' do 

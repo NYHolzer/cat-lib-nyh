@@ -2,6 +2,7 @@
 
 <p>
 <% Book.all.each do |book|%>
+    <%=book.id%>
     <strong><%=book.title%></strong><br>
     <%=book.description%><br><br>
     <%end%>
