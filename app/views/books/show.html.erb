@@ -1,0 +1,8 @@
+
+<h1>Title: <%=@book.title%> </h1>
+<p> Description: <%=@book.description%> </p>
+
+<form action='/books/<%= @book.id%>' method="POST"> 
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" id="submit" value="delete"> 
+</form>

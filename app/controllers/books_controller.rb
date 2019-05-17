@@ -34,4 +34,21 @@ class BooksController < ApplicationController
             "A edit post form"  #rendering if they are
         end
     end
+
+    get '/books/:id' do 
+        if !logged_in?
+            redirect '/login'  #Redirecting if they aren't
+        else 
+            @book = Book.find(params[:id])
+            erb :'books/show.html'
+        end
+    end
+
+    delete '/books/:id' do 
+        @book = Book.find(params[:id])
+        @book.destroy
+        
+        redirect '/books'
+    end
+
 end
