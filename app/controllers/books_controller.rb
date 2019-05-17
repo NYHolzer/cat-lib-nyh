@@ -2,7 +2,8 @@ class BooksController < ApplicationController
     get '/books' do 
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
-        else 
+        else
+            @book = Book.new
             erb :"books/index.html" 
         end
     end

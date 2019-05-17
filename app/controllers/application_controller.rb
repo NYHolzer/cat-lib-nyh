@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
 
         def logout 
             session.clear
-            redirect '/posts'
+            redirect '/login'
             #Emailing them letting them know that they logged out
         end
     end

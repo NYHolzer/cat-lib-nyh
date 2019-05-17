@@ -1,4 +1,10 @@
-<h1>This is my index file</h1>
+<h1>Here are a list of the Books in your library</h1>
 
+<p>
+<% Book.all.each do |book|%>
+    <strong><%=book.title%></strong><br>
+    <%=book.description%><br><br>
+    <%end%>
+</p>
 
 
