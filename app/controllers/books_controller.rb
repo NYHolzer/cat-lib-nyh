@@ -52,7 +52,7 @@ class BooksController < ApplicationController
         @book.save 
         @book 
 
-        redirect '/books/#{@book.id}'
+        redirect "/books/#{@book.id}"
     end
 
     delete '/books/:id' do 
