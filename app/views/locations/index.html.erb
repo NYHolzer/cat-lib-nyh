@@ -16,6 +16,11 @@
             <td><%=location.city%></td>
             <td><%=location.state%></td>
             <td><%=location.zip_code%></td>
+            <td><form action="/locations/<%=location.id%>" method="POST"> 
+                <input id="hidden" type="hidden" name="_method" value="DELETE">
+                <input type="submit" id="submit" value="delete"> 
+            </td>
+        </form>
         </tr>
     <%end%>
 <%end%>

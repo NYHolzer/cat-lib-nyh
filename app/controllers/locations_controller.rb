@@ -48,4 +48,11 @@ class LocationsController < ApplicationController
 
         redirect "/locations"
     end
+
+    delete '/locations/:id' do 
+        @location = Location.find(params[:id])
+        @location.destroy
+        
+        redirect '/locations'
+    end
 end
