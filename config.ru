@@ -9,4 +9,5 @@ use Rack::MethodOverride
 use SessionsController
 use BooksController
 use UsersController
+use LocationsController
 run ApplicationController
