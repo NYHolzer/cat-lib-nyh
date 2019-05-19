@@ -1,0 +1,20 @@
+
+<h1>Edit <br> <%= @location.name%></h1>
+<form action="/locations/<%= @location.id%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <%if @current_user.id == @location.user_id%>
+    <label for="name">Name</label>
+    <input type="text" size="100" name="name" value="<%= @location.name %>"><br>
+    <label for="address">Address</label>
+    <input type="text" size="100" name="address" value="<%= @location.address %>"><br>
+    <label for="city">City</label>
+    <input type="text" size="100" name="city" value="<%= @location.city %>"><br>
+    <label for="state">State</label>
+    <input type="text" size="100" name="state" value="<%= @location.state %>"><br>
+    <label for="zip_code">Zip Code</label>
+    <input type="text" size="100" name="zip_code" value="<%= @location.zip_code %>"><br>
+  <%else%>
+    <p>I'm sorry but that is not one of your library locations</p>
+  <%end%>
+  <input type="submit" id="submit" value="Save">
+</form>

@@ -11,6 +11,15 @@
             <textarea id="description" type="text" name="description">
             </textarea>
         </li>
+        <li> 
+            <select name="location">
+                <%Location.all.each do |location|%>
+                    <%if @current_user.id == location.user_id%>
+                        <option value="<%=location.name%>"><%=location.name%></option>
+                    <%end%>
+                <%end%>
+            </select>
+        </li>
     </ul>
     <input type="submit"/>
 </form>

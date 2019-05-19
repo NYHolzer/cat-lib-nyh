@@ -18,6 +18,8 @@ class BooksController < ApplicationController
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
         else 
+            @current_user
+            @location = Location.new
             erb :"books/new.html"   
         end
     end
@@ -65,6 +67,7 @@ class BooksController < ApplicationController
         @book = Book.find(params[:id])
         @book.title = params[:title]
         @book.description = params[:description]
+        @book.location = Location.find_by(name: params[:location])
         @book.save 
         @book 
 
