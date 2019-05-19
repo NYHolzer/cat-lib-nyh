@@ -1,9 +1,11 @@
 class LocationsController < ApplicationController 
-    get 'locations' do 
+    get '/locations' do 
+        @current_user
+        @location = Location.new
         erb :"locations/index.html"
     end
 
-    get '/locations/new'
+    get '/locations/new' do
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
         else 
@@ -13,8 +15,11 @@ class LocationsController < ApplicationController
 
     post "/locations" do 
         @location = Location.new 
-        @location.title = params[:title]
-        @location.description = params[:description]
+        @location.name = params[:name]
+        @location.address = params[:address]
+        @location.city = params[:city]
+        @location.state = params[:state]
+        @location.zip_code = params[:zip_code]
         @location.user_id = current_user.id 
         @location.save
 

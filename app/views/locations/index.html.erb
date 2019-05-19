@@ -1,0 +1,30 @@
+<h1>Locations</h1>
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip Code</th>
+</tr>
+<% Location.all.each do |location|%>
+    <%if current_user.id == location.user_id%>
+        <tr>
+            <td><%=location.name%></td>
+            <td><%=location.address%></td>
+            <td><%=location.city%></td>
+            <td><%=location.state%></td>
+            <td><%=location.zip_code%></td>
+        </tr>
+    <%end%>
+<%end%>
+</table>
+
+<p>
+<button><a href="/locations/new"> Click Here to Add a New Location </a></button>
+
+<button><a href="/logout">Logout </a></button>
+</p>
+
+
