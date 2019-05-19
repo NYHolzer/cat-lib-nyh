@@ -1,8 +1,12 @@
 
 <h1>Title: <%=@book.title%> </h1>
 <p> Description: <%=@book.description%> </p>
-<a href="/books/<%=@book.id%>/edit"> edit </a>
+    
+<button><a href="/books"> Go Back to List of Books </a></button>
+<br>
+<button><a href="/books/<%=@book.id%>/edit"> edit  </a></button>
+
 <form action='/books/<%= @book.id%>' method="POST"> 
-<input id="hidden" type="hidden" name="_method" value="DELETE">
-<input type="submit" id="submit" value="delete"> 
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" id="submit" value="delete"> 
 </form>

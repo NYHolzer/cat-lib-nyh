@@ -3,6 +3,7 @@ class BooksController < ApplicationController
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
         else
+            @current_user
             @book = Book.new
             erb :"books/index.html" 
         end
@@ -35,6 +36,15 @@ class BooksController < ApplicationController
         end
     end
 
+    get "/books/search" do 
+        @books = Book.all 
+        if params[:search] 
+            @books = Book.search(params[:search])
+            erb :"books/results.html"
+        else  
+            erb:
+    end
+
     post "/books" do 
         @book = Book.new 
         @book.title = params[:title]
@@ -61,5 +71,7 @@ class BooksController < ApplicationController
         
         redirect '/books'
     end
+
+
 
 end

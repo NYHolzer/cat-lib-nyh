@@ -1,11 +1,20 @@
 <h1>Here are a list of the Books in your library</h1>
 
+<form action="/books/search" method="GET">
+    <input type="text" name="search">
+</form>
+
 <p>
 <% Book.all.each do |book|%>
-    <%=book.id%>
-    <strong><%=book.title%></strong><br>
-    <%=book.description%><br><br>
+    <%if @current_user.id == book.user_id%>
+        <%=book.id%>
+        <strong><%=book.title%></strong><br>
+        <%=book.description%><br><br>
     <%end%>
+<%end%>
+
+<button><a href="/books/new"> Click Here to Add Books </a></button>
+
 </p>
 
 
