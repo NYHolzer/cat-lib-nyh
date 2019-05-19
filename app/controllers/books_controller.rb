@@ -36,13 +36,15 @@ class BooksController < ApplicationController
         end
     end
 
-    get "/books/search" do 
+    post "/books/search" do 
         @books = Book.all 
-        if params[:search] 
+        @user = current_user
+        if params[:search]
             @books = Book.search(params[:search])
-            erb :"books/results.html"
         else  
-            erb:
+            @books = Book.all
+        end
+        erb :"books/results.html"
     end
 
     post "/books" do 

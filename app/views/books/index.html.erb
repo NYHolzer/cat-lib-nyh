@@ -1,8 +1,10 @@
 <h1>Here are a list of the Books in your library</h1>
 
-<form action="/books/search" method="GET">
+<form action="/books/search" method="POST">
     <input type="text" name="search">
+    <input type="submit" value="Search">
 </form>
+
 
 <p>
 <% Book.all.each do |book|%>
