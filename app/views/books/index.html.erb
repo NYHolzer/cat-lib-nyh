@@ -9,14 +9,15 @@
 <p>
 <% Book.all.each do |book|%>
     <%if @current_user.id == book.user_id%>
-        <%=book.id%>
-        <strong><%=book.title%></strong><br>
+        <a href="/books/<%=book.id%>"><strong><%=book.title%></strong></a>
+        <br>
         <%=book.description%><br><br>
     <%end%>
 <%end%>
 
 <button><a href="/books/new"> Click Here to Add Books </a></button>
 
+<button><a href="/logout">Logout </a></button>
 </p>
 
 

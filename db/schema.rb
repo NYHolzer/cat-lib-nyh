@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_004732) do
+ActiveRecord::Schema.define(version: 2019_05_19_200807) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.integer "user_id"
+    t.integer "location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
     t.integer "user_id"
   end
 
