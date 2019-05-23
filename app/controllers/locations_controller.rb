@@ -19,7 +19,7 @@ class LocationsController < ApplicationController
         else 
             @current_user
             @location = Location.find(params[:id])
-            erb :'locations/edit.html'
+            erb :"locations/edit.html"
         end
     end
 
