@@ -46,7 +46,7 @@ class BooksController < ApplicationController
         @books = Book.all 
         @user = current_user
         if params[:search]
-            @books = Book.search(params[:search])
+            @books = @current_user.books.search(params[:search])
         else  
             @books = Book.all
         end

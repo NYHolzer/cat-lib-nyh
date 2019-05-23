@@ -2,10 +2,8 @@
 <table>
 <td>Book Title</td><td>Description</td>
 <% @books.each do |book| %>
-    <%if @user.id == book.user_id%>
     <tr><td><a href="/books/<%= book.id %>"><%= book.title %></a> </td>
     <td><%= book.description %></td>
-    <%end%>
 <% end %>
 <% else %>
 <p>There are no Books containing the term(s): <%= params[:search] %>.</p>
