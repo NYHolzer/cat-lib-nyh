@@ -7,12 +7,10 @@
 
 
 <p>
-<% Book.all.each do |book|%>
-    <%if @current_user.id == book.user_id%>
-        <a href="/books/<%=book.id%>"><strong><%=book.title%></strong></a>
-        <br>
-        <%=book.description%><br><br>
-    <%end%>
+<% @books.each do |book|%>
+    <a href="/books/<%=book.id%>"><strong><%=book.title%></strong></a>
+    <br>
+    <%=book.description%><br><br>
 <%end%>
 
 <button><a href="/books/new"> Click Here to Add Books </a></button>

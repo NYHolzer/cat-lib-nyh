@@ -7,8 +7,7 @@ class BooksController < ApplicationController
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
         else
-            @current_user
-            @book = Book.new
+            @books = @current_user.books
             erb :"books/index.html" 
         end
     end
@@ -28,7 +27,8 @@ class BooksController < ApplicationController
         if !logged_in?
             redirect '/login'  
         else 
-            @book = Book.find(params[:id])
+            @book = @current_user.books.find(params[:id])
+            @locations = @current_user.locations
             erb :'books/edit.html'
         end
     end
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
         if !logged_in?
             redirect '/login'  #Redirecting if they aren't
         else
-            @book = Book.find(params[:id])
+            @book = @current_user.books.find(params[:id])
             erb :'books/show.html'
         end
     end

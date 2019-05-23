@@ -4,12 +4,13 @@
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <input type="text" size="100" name="title" value="<%= @book.title %>"><br>
   <textarea name="description" cols="100" rows="20"><%= @book.description %></textarea>
-  <select name="location">
-      <%Location.all.each do |location|%>
-        <%if @current_user.id == location.user_id%>
-          <option value="<%=location.name%>"><%=location.name%></option>
-        <%end%>
+  
+    <select name="location">
+      <% @locations.all.each do |location|%>
+        <option value="<%=location.name%>"><%=location.name%></option>
       <%end%>
     </select>
+    
+    
   <input type="submit" id="submit">
 </form>
